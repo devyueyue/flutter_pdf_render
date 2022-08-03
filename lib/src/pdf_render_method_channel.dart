@@ -1,13 +1,12 @@
 import 'dart:async';
-import 'dart:ui' as ui;
 import 'dart:typed_data';
+import 'dart:ui' as ui;
 
 import 'package:flutter/services.dart';
 
-import 'utils/ffi_wrapper.dart';
-
 import 'interfaces/pdf_render.dart';
 import 'interfaces/pdf_render_platform_interface.dart';
+import 'utils/ffi_wrapper.dart';
 
 const MethodChannel _channel = MethodChannel('pdf_render');
 
@@ -356,8 +355,8 @@ class PdfPageImageTextureMethodChannel extends PdfPageImageTexture {
       'allowAntialiasingIOS': allowAntialiasingIOS,
     }))!;
     if (result >= 0) {
-      _texWidth = width ?? _texWidth;
-      _texHeight = height ?? _texHeight;
+      _texWidth = width;
+      _texHeight = height;
     }
     return result >= 0;
   }
